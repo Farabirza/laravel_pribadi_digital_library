@@ -301,6 +301,7 @@
     <!-- container footer start -->
 
 </section>
+<!-- section end -->
 
 @include('layouts.partials.modal_bookIndex')
 
