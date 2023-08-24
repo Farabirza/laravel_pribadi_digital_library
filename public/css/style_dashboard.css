@@ -1,0 +1,99 @@
+:root {
+  --sidebar-width: 300px;
+}
+a:hover { color: inherit }
+/* ========================== Navigation start ========================== */
+#sidebar-dashboard {
+    z-index: 999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: var(--sidebar-width);
+    padding: 20px;
+    transition: all ease-in-out 0.5s;
+    transition: all 0.5s;
+    overflow-y: auto;
+    background: #040b14;
+} .mobile-nav-toggle {
+  position: fixed;
+  right: 15px;
+  top: 15px;
+  z-index: 9998;
+  border: 0;
+  font-size: 24px;
+  transition: all 0.4s;
+  outline: none !important;
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+  border-radius: 50px;
+  cursor: pointer;
+} .mobile-nav-active {
+  overflow: hidden;
+} .mobile-nav-active #sidebar-dashboard {
+  left: 0;
+}
+
+/* ========================== Navigation start ========================== */
+/* Desktop Navigation */
+.nav-menu * { margin: 0; padding: 0; list-style: none; }
+.nav-menu ul { width: 100%; }
+.nav-menu > ul > li {
+  position: relative;
+  white-space: nowrap;
+}
+.nav-menu .nav-link, .nav-menu li:focus {
+  display: flex;
+  align-items: center;
+  color: #a8a9b4;
+  margin-bottom: 8px;
+  transition: 0.3s;
+  font-size: 15px;
+}
+.nav-menu li i, .nav-menu li:focus i {
+  font-size: 24px;
+  padding-right: 8px;
+  color: #6f7180;
+}
+.nav-menu li:hover, .nav-menu .active, .nav-menu .active:focus, .nav-menu li:hover > a {
+  text-decoration: none;
+  color: #fff;
+  cursor: pointer;
+}
+.nav-menu li:hover i, .nav-menu .active i, .nav-menu .active:focus i, .nav-menu li:hover > a i { color: #ddd; }
+.dropdown-divider { margin: 0 20px; }
+.nav-drop { position: absolute; right: 0; }
+
+.nav-submenu { color: #aaa; font-size: 10pt; text-indent: 2em; margin-bottom: 10px; }
+.nav-submenu a:hover { color: var(--bs-light); }
+
+.nav-list { font-size: 11pt; padding-bottom: 15px; }
+/* ========================== Navigation end ========================== */
+
+#section-header-dashboard { position: relative; }
+
+#main, #container-header-dashboard {
+    padding-left: var(--sidebar-width);
+}
+
+#section-content { padding: 30px 20px; }
+
+@media (max-width: 768px) {
+    #section-content { padding: 30px 1%; }
+}
+
+@media (max-width: 1199px) {
+    #toggle-sidebar { display: none; }
+    #main, #container-header-dashboard { padding-left: 0; padding-right: 0 }
+    #sidebar-dashboard {
+        left: calc(var(--sidebar-width) * -1);
+    }
+}
+/* ========================== Navigation end ========================== */
+@media (max-width: 768px) {
+}
