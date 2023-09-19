@@ -13,12 +13,13 @@ use App\Http\Controllers\BookmarkController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\NotificationController;
 
-Route::get('/', function () { return redirect('/book'); });
+// Route::get('/', [GeneralController::class, 'index']);
+Route::get('/', function () { return redirect('/book'); } );
 Route::get('/home', function () { return view('home'); });
 
 Route::group([
     'middleware' => ['auth', 'verified', 'isAdmin', 'isActive'],
-    'prefix' => 'admin'
+    'prefix' => 'library/admin'
     ], function () {
     Route::get('/user', [AdminController::class, 'user']);
     Route::get('/book', [AdminController::class, 'book']);

@@ -37,12 +37,6 @@ class BookController extends Controller
             ], 400);
         }
     }
-    public function isStudent()
-    {
-        if(Auth::user()->profile->role == 'student') {
-            return redirect('/book')->with('error', 'Access denied!');
-        }
-    }
     /**
      * Display a listing of the resource.
      *
@@ -58,7 +52,7 @@ class BookController extends Controller
             if(!Auth::user()->profile) {
                 return redirect('/profile');
             }
-            if(Auth::user()->profile == 'student') {
+            if(Auth::user()->profile->role == 'student') {
                 $books = Book::where('status', 'active')->where('access', '!=','teacher_only')->orderByDesc('created_at')->filter(request(['search']))->paginate(12);
             } else {
                 $books = Book::where('status', 'active')->orderByDesc('created_at')->filter(request(['search']))->paginate(12);
@@ -86,7 +80,7 @@ class BookController extends Controller
         // notifications
         $notification = $this->buildNotification();
 
-        return view('index', [
+        return view('book.index', [
             'dashboard_header' => '<i class="bx bx-book-content me-3"></i><span>Windows of Knowledge</span>',
             'metaTags' => $this->metaTags,
             'page_title' => 'Digital Library',
@@ -383,7 +377,6 @@ class BookController extends Controller
     }
     public function quick_update(Request $request)
     {
-        $this->isStudent();
         // update book
         $book = Book::find($request->book_id);
         $category_id = ($request->category_id != null) ? $request->category_id : $book->category_id;

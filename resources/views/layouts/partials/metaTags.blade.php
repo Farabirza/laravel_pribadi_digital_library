@@ -16,8 +16,13 @@
 <meta property="og:image:width" content="1366" />
 <meta property="og:image:height" content="768" />
 <meta name="twitter:image" content="{{ asset('img/materials/landing.jpg') }}">
-@endif
-
 <!-- Favicons -->
+@if(isset($metaTags['icon']))
+<link href="{{ asset('/img/logo/'.$metaTags['icon']) }}" rel="icon">
+<link href="{{ asset('/img/logo/'.$metaTags['icon']) }}" rel="apple-touch-icon">
+@else
 <link href="{{ asset('/img/logo/logo_book_small.png') }}" rel="icon">
 <link href="{{ asset('/img/logo/logo_book_small.png') }}" rel="apple-touch-icon">
+@endif
+@endif
+

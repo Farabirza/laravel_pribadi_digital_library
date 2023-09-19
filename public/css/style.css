@@ -65,6 +65,22 @@ h1, h2, h3, h4, h5, h6 {
   .col-20, .col-40 { width: 50%; }
 }
 
+.em-6 { font-size: .6em; }
+.em-7 { font-size: .7em; }
+.em-8 { font-size: .8em; }
+.em-9 { font-size: .9em; }
+.em-10 { font-size: 1em; }
+.em-12 { font-size: 1.2em; }
+.em-14 { font-size: 1.4em; }
+.em-16 { font-size: 1.6em; }
+.em-18 { font-size: 1.8em; }
+.em-20 { font-size: 2em; }
+
+.fw-300 { font-weight: 300; }
+.fw-400 { font-weight: 400; }
+.fw-500 { font-weight: 500; }
+.fw-600 { font-weight: 600; }
+
 .fs-6 { font-size: 6pt; }
 .fs-7 { font-size: 7pt; }
 .fs-8 { font-size: 8pt; }

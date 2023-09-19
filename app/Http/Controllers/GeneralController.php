@@ -18,13 +18,17 @@ class GeneralController extends Controller
 {
     public function __construct() {
         $this->metaTags = [
-            'title' => 'Digital Library',
+            'icon' => 'logo_book.png',
+            'title' => 'Ruang Siswa',
             'description' => 'Unlock the World of Knowledge!',
         ];
     }
     public function index()
     {   
-        return redirect('/book');
+        return view('index', [
+            'metaTags' => $this->metaTags,
+            'page_title' => 'Ruang Siswa',
+        ]);
     }
     public function action(Request $request)
     {

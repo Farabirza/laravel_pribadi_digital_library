@@ -135,7 +135,7 @@ class UsersController extends Controller
                 'email' => $email, 'password' => $request['password']
             ], $remember)) {
                 $request->session()->regenerate();
-                return redirect()->intended('/');
+                return redirect()->intended('/book');
             }
         }
         return back()->with('error', 'Your email or password is incorrect!');

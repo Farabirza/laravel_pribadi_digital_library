@@ -82,8 +82,8 @@
  <header>
  <div id="sidebar-dashboard" class="d-flex flex-column flex-shrink-0">
     <div class="mb-5">
-        <p class="text-center text-light fs-14 mb-4"><a href="/" class="text-center"><b>Digital</b> Library</a></p>
-        <a href="/" class="text-center"><img src="{{asset('img/logo/logo-pribadi-white.png')}}" class="d-block"></a>
+        <p class="text-center text-light fs-14 mb-4"><a href="/book" class="text-center"><b>Digital</b> Library</a></p>
+        <a href="/book" class="text-center"><img src="{{asset('img/logo/logo-pribadi-white.png')}}" class="d-block"></a>
     </div>
     @auth
     <div class="px-3 mb-3">
@@ -94,9 +94,9 @@
             <img src="{{asset('img/profiles/user.jpg')}}" alt="" class="rounded user-picture" style="max-height:180px;">
             @endif
             @if(Auth::user()->authority->name == 'superadmin')
-            <a href="/admin/user"><i class=" sign-admin bx bxs-crown bx-border-circle popper" title="Superadmin"></i></a>
+            <a href="/library/admin/user"><i class=" sign-admin bx bxs-crown bx-border-circle popper" title="Superadmin"></i></a>
             @elseif(Auth::user()->authority->name == 'admin')
-            <a href="/admin/user"><i class="sign-admin bx bx-crown bx-border-circle popper" title="Admin"></i></a>
+            <a href="/library/admin/user"><i class="sign-admin bx bx-crown bx-border-circle popper" title="Admin"></i></a>
             @endif
             @if(Auth::user()->profile)
             <p class="text-light fs-10 mt-3 mb-2 text-uppercase fw-bold d-flex align-items-center justify-content-center gap-2" style="letter-spacing:1px">
@@ -113,7 +113,7 @@
                 <!-- book -->
                 <li id="link-book" class="nav-link mb-3"><i class="bx bx-book"></i><span role="button" data-bs-toggle="collapse" data-bs-target="#submenu-book" aria-expanded="true" aria-controls="submenu-book">Book<i class='bx bx-chevron-down nav-drop'></i></span></li>
                 <ul class="bx-ul collapse nav-submenu mb-3" id="submenu-book">
-                    <li id="link-book-index" class="nav-list"><a href='/'><i class="bx bx-search-alt-2"></i>Search</a></li>
+                    <li id="link-book-index" class="nav-list"><a href='/book'><i class="bx bx-search-alt-2"></i>Search</a></li>
                     <li id="link-book-create" class="nav-list"><a href='/book/create'><i class="bx bx-mail-send"></i>Submission</a></li>
                     <li id="link-book-bookmark" class="nav-list"><span role="button" onclick="modalBookmark()"><i class="bx bx-bookmarks"></i>Bookmarks</span></li>
                 </ul>
@@ -133,11 +133,15 @@
                 @if(Auth::user()->authority->name != 'user')
                 <li id="link-admin" class="nav-link mb-3"><i class="bx bx-crown"></i><span role="button" data-bs-toggle="collapse" data-bs-target="#submenu-admin" aria-expanded="true" aria-controls="submenu-admin">Admin<i class='bx bx-chevron-down nav-drop'></i></span></li>
                 <ul class="bx-ul collapse nav-submenu mb-3" id="submenu-admin">
-                    <li id="link-admin-user" class="nav-list"><a href='/admin/user'><i class="bx bxs-user"></i>User controller</a></li>
-                    <li id="link-admin-book" class="nav-list"><a href='/admin/book'><i class="bx bxs-book"></i>Book controller</a></li>
+                    <li id="link-admin-user" class="nav-list"><a href='/library/admin/user'><i class="bx bxs-user"></i>User controller</a></li>
+                    <li id="link-admin-book" class="nav-list"><a href='/library/admin/book'><i class="bx bxs-book"></i>Book controller</a></li>
                 </ul>
                 @endif
                 <!-- admin end -->
+                <!-- home -->
+                <li class="nav-link my-4"><hr class="border border-light w-100"></li>
+                <li class="nav-link mb-3"><a href="/" class="flex-start"><i class="bx bx-exit"></i>Ruang Siswa</a></li>
+                <!-- home end -->
             </ul>
         </nav>
     </div>
@@ -232,7 +236,7 @@ const modalBookmark = () => {
     $('#modal-bookmark').modal('show');
 };
 @endauth
-// const domain = window.location.host+'/';
+// const domain = window.location.host+'/book';
 const domain = 'http://localhost:8000/';
 // const domain = 'https://library.pribadidepok.sch.id/';
 
